@@ -1,1 +1,1 @@
-# quiz-web-api
+I created this quiz using javascript for class as an assignment. This quiz is supposed to test a student's knowledge of javascript and stores the high scores of a test in order to compare it to peers. I have set it to a timer. Either the student answers all of the answers before the time is up or the timer runs out. If the timer runs out before all questions are answered, then those answers are counted against the student. When the quiz is over, the student should be able to save initials and their score.
