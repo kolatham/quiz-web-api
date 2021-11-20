@@ -1,15 +1,18 @@
-f
+
+var timerEl =document.querySelector("#timer")
+var scoreText =document.querySelector("#score")
+var secondsLeft = 140;
 
 const quizContainer = document.getElementById('quiz');
 const resultsContainer = document.getElementById('results');
 const submitButton = document.getElementById('submit');
 const myQuestions = [
     {
-        question: "",
+        question: "How do you make a button clickable?",
         answers: {
-            a:"",
-            b:"",
-            c:"",
+            a:"console.log",
+            b:"addEventListener",
+            c:"btn",
             d: "",
         },
         correctAnswer: ""
@@ -76,6 +79,20 @@ const myQuestions = [
     },
 ];
 
+function beginQuiz() {
+    questionCounter = 0;
+    score =0;
+    nextQuestions =[...myQuestions];
+    getNextQuestion();
+}
+
+function nextQuestion() {
+    questionCounter = 0;
+    score = 0;
+    availableQuestions = [...myQuestions];
+    getNextQuestion();
+}
+
 function buildQuiz(){
 const output =[];
 myQuestions.forEach(
@@ -93,13 +110,26 @@ for(letter in currentQuestion.answers) {
 
     );
     output.push(
-        <div class = "question"> ${currentQuestion}</div>
-        );
-    output.push(
-        <div class = "question">${answers.join("")}</div>
-    );
-quizContainer.innerHTML = output.join("");
- }
+        <div class="slide">
+        <div class="question"> ${currentQuestion.question} </div>
+        <div class="answers"> ${answers.join("")} </div>
+    </div>
+quizContainer.innerHTML = output.join(""),
+
+function setTime() {
+    Headers.style.display = "none";
+    startBtn.style.display ="none";
+    var timerInterval = setInterval(function( {
+        secondsLeft---;
+        timerEl.textContent = secondsLeft + "seconds remaining.";
+        if (secondsLeft === 0) {
+            clearInterval(timerInterval);
+            sendMessage();
+        }
+
+    
+}, 1000);
+};
 
 
 function showResults() {
@@ -117,7 +147,7 @@ function showResults() {
             answerContainers[questionNumber].style.color = "ruby red";
         }
     }
-    resultsContainer.innerHTML = "${numCorrect} out of ${myQuestions.length}";
+    resultsContainer.innerHTML = "${numCorrect} out of ${myQuestions.length}",
 
     
     function showSlide(n) {
@@ -134,14 +164,10 @@ function showResults() {
         }
         
     }
-    
-    showSlide(currentSlide);
-
-    function showNextSlide() {
-        showSlide(currentSlide +1);
-    
-    }    
 
 nextButton.addEventListener("click", showNextSlide);
 submitButton.addEventListener('click', showResults);
+beginButton.addEventListener("click", beginQuiz);
 }
+
+z
