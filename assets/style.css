@@ -54,3 +54,48 @@ h2 {
 .btn:hover {
     cursor: pointer;
 };
+
+.btn:disabled:hover {
+cursor:not-allowed;
+};
+
+#highscore-btn {
+    background: linear-gradient(cyan);
+};
+#highscore-btn:hover {
+    box-shadow: 0 0.5rem 1.5rem 0 ivory;
+    transform: scale(1.0);
+    transform: transform 100ms;
+};
+
+
+.end-form-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 30rem;
+}
+
+input {
+    margin-bottom: 1rem;
+    width: 20rem;
+    padding: 1rem;
+    font-size: 1.5rem;
+    border: none;
+}
+
+input::placeholder {
+    color: turquoise;
+}
+
+#username {
+    margin-bottom: 3rem;
+    width: 100%;
+    outline: none;
+}
+
+#end-text {
+    font-size: 2.5rem;
+    color:seagreen;
+}
